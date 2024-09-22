@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+
+# Build directories
+/build
+/dist
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+
+# Dependency directories
+/client/chat-app/node_modules/
+/server/node_modules/
+/client/chat-app/.env
+/server/.env
+# React specific
+client/build/
+client/.cache/
+client/.env
+
+# Temporary files
+.DS_Store
+Thumbs.db
+*.tgz
+*.tmp
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
+*.bak
+*.orig
