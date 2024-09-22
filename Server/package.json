@@ -4,9 +4,10 @@
   "description": "Real time chat app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev":"nodemon index.js"
   },
-  "author": "",
+  "author": "MD Farhan",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
