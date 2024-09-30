@@ -19,7 +19,7 @@ const registerUser = async ( req,res)=>{
             password:hash,
         });
         await newUser.save();
-        res.status(200).send("User had been created");
+        res.status(200).send({message:"User has been created"});
     
     }catch(err){
         res.status(500).json({ message: "Server error", error: err.message });
