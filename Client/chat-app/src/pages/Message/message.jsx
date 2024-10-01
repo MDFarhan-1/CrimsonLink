@@ -9,6 +9,7 @@ const socket = io('http://localhost:7000',{
 
 const MessagePage = ()=>{
     const {userId:toUserId} = useParams();
+    console.log(toUserId);
     const [messages,setMessages] = useState([]);
     const [input,setInput] = useState('');
     const [isConnected , setIsConnected ] = useState(false);
@@ -35,10 +36,10 @@ const MessagePage = ()=>{
             };
 
             checkConnection();
-            socket.on('private-message',({message,from})=>{
-                if(from === toUserId){
-                    setMessages((prevMessages)=>[...prevMessages,{message,from}]);
-                }
+            socket.on('private-message',({message,senderName})=>{
+                // if(from === toUserId){
+                    setMessages((prevMessages)=>[...prevMessages,{message,from:senderName}]);
+                // }
             });
 
             socket.on('update-user-status',({userId,status})=>{
@@ -64,6 +65,8 @@ const MessagePage = ()=>{
     const sendMessage = ()=>{
         const currentUserId = sessionStorage.getItem('userId');
         if(input.trim() && currentUserId && isConnected){
+            console.log(`the from user is ${currentUserId} and to user is ${toUserId}`)
+            
             socket.emit('private-message',{message:input,to:toUserId,from:currentUserId});
             setMessages((prevMessages)=>[...prevMessages,{message:input,from:"Me"}]);
             setInput('');
@@ -77,7 +80,7 @@ const MessagePage = ()=>{
             <div>
                 {messages.map((msg,index)=>(
                     <p key={index}>
-                        <strong>{msg.from}</strong>{msg.message}
+                        <strong>{msg.from}: </strong>{msg.message}
                     </p>
                 ))}
             </div>
