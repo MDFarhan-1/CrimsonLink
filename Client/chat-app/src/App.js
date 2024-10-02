@@ -6,6 +6,7 @@ import Register from './pages/register/register';
 import Login from './pages/Login/login';
 import Message from './pages/Message/message';
 import Explore from './pages/Explore/explore';
+import './App.css';
 
 function App(){
     return (

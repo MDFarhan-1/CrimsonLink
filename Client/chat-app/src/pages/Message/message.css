@@ -1,0 +1,92 @@
+/* message.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.message-container {
+    width: 600px; /* Fixed width for the message container */
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+}
+
+.messages {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+    flex-grow: 1; /* Allow the messages area to grow */
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    display: block; /* Change to block to stack messages */
+    max-width: 80%; /* Adjust the width of messages */
+}
+
+.message.me {
+    background-color: #d1e7dd; /* Background for sent messages */
+    margin-left: auto; /* Align messages from "Me" to the right */
+    text-align: right; /* Align text to the right */
+}
+
+.message.sender {
+    background-color: #829aac; /* Background for received messages */
+    margin-right: auto; /* Align messages from sender to the left */
+    text-align: left; /* Align text to the left */
+}
+
+strong {
+    font-weight: bold;
+    color: #000000; /* Color for sender names */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+p.error {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}
+
+p.connection-status {
+    text-align: center;
+    color: #e74c3c; /* Color for connection status */
+    margin-top: 20px;
+    font-size: 16px;
+}

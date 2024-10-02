@@ -19,18 +19,28 @@ function Register(){
             data.append("file",file);
             data.append("upload_preset","upload");
             
-            try{
+            try {
+                // Prepare the form data
+                const formData = new FormData();
+                formData.append('file', data); // Assuming `data` contains the file you want to upload
+                formData.append('upload_preset', 'your_upload_preset_name'); // Replace with your upload preset if you have one
+            
+                // Use the correct Cloudinary upload URL
                 const uploadRes = await axios.post(
-                    "my api cloudinary api link",
-                    data,{withCredentials:false}
+                    'https://api.cloudinary.com/v1_1/dmze1knpz/image/upload', // Use HTTPS
+                    formData,
+                    { withCredentials: false }
                 );
-                const {url} = uploadRes.data;
-                const newUser ={
+            
+                const { url } = uploadRes.data;
+                const newUser = {
                     ...info,
-                    profilePicture:url,
-                }
-                await axios.post("http://localhost:7000/api/user/register",newUser,{withCredentials:false})
-                .then(alert(res=>res.data.message))
+                    profilePicture: url,
+                };
+            
+                await axios.post("http://localhost:7000/api/user/register", newUser, { withCredentials: false })
+                    .then(res => alert(res.data.message));
+            
                 navigate("/login");
             }catch(err){
                 console.log(err);

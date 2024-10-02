@@ -22,7 +22,7 @@ const Login = () => {
         if(response.data.token && response.data.userId){
           sessionStorage.setItem('token',response.data.token);
           sessionStorage.setItem('userId',response.data.userId);
-          navigate("/explore");
+          navigate("/");
         }else{
           console.log("Login failed, no token received.")
         }
